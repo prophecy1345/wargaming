@@ -93,13 +93,10 @@ function animateNumber(element, number){
 
 
 $(document).ready(function() {
-
     calculateValue();
 
-
-    $(".tanks-equipment-container input, .tanks-equipment-container select, #rating_slider, .ui-slider-handle touchstart").on("click input touchstart", function(event) {
-        event.preventDefault();
-        calculateValue();
+    $("input[type=radio]").on("touchstart click", function() {
+       calculateValue();
     });
 
     $("#rating_input").on("input", function() {
