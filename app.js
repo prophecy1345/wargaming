@@ -91,8 +91,12 @@ $(document).ready(function() {
     calculateValue();
 
 
-    $("#rating_input, .tanks-equipment-container input, .tanks-equipment-container select, #rating_slider, .ui-slider-handle").on("click input touchstart", function(event) {
+    $(".tanks-equipment-container input, .tanks-equipment-container select, #rating_slider, .ui-slider-handle").on("click input touchstart", function(event) {
         event.preventDefault();
+        calculateValue();
+    });
+
+    $("#rating_input").on("input", function() {
         calculateValue();
     });
 
