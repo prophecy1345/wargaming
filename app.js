@@ -53,12 +53,28 @@ function calculateValue() {
 
     var totalValue = (rating * 3 * equipmentValue).toFixed(0);
 
+    updateNumber("#experience-quantity", totalValue);
+
     $("#experience-quantity").text(totalValue);
 }
 
+ function updateNumber(element, number){
+    $(element).prop('counter',0).animate({
+        counter: number
+    },
+    {
+      duration: 100,
+      step: function(now){
+          $(this).text(Math.ceil(now));
+      }
+    });
+};
+
 
 $(document).ready(function() {
+
     calculateValue();
+
 
     $("#rating_input, .tanks-equipment-container input, .tanks-equipment-container select, #rating_slider, .ui-slider-handle").on("click", function() {
         calculateValue();
