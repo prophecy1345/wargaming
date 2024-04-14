@@ -58,12 +58,24 @@
         <div class="main-slider-container">
             <span class="bar-background"></span>
             <div class="tanks-slider-container">
-                <p class="tanks-popup-title">Количество боёв</p>
-                <div class="custom-progress progress-up">
-                    <div id="rating_slider" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content mt-3"></div>
-                </div>
+            <p class="tanks-popup-title">Количество боёв</p>
+            <div class="custom-progress progress-up">
+                <div id="rating_slider" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content mt-3"></div>
             </div>
-            <input type="number" id="rating_input" value="1" min="0" max="300">
+            </div>
+            <input
+                type="number"
+                id="rating_input"
+                value="0"
+                min="0"
+                max="300"
+                oninput="
+                    if (this.value === '') this.value = 0;
+                    if (this.value > 300) this.value = 300;
+                    if (this.value.length > 1 && this.value[0] === '0') this.value = this.value.slice(1);
+                "
+            >
+        </div>
         </div>
     </div>
     <script defer src="./vendor/js/jquery-3.7.1.min.js"></script>

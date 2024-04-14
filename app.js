@@ -76,7 +76,7 @@ $(document).ready(function() {
     calculateValue();
 
 
-    $("#rating_input, .tanks-equipment-container input, .tanks-equipment-container select, #rating_slider, .ui-slider-handle").on("click", function() {
+    $("#rating_input, .tanks-equipment-container input, .tanks-equipment-container select, #rating_slider, .ui-slider-handle").on("click input", function() {
         calculateValue();
     });
 });
