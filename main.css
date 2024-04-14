@@ -286,6 +286,7 @@ input[type=number] {
     height: 48px;
     text-align: right;
     padding-right: 14px;
+    touch-action: manipulation;
 }
 
 input[type=number]:focus {

@@ -55,6 +55,10 @@ function calculateValue() {
         $(this).prop("checked", true);
     });
 
+    $("#rating_input").on("click touchstart", function() {
+        $(this).focus();
+    });
+
     var totalValue = (rating * 3 * equipmentValue).toFixed(0);
 
     console.log(totalValue);
