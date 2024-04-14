@@ -26,23 +26,24 @@
         <div class="main-equipment-container">
             <fieldset class="tanks-equipment-container">
                 <legend class="tanks-popup-title">Комплектация</legend>
+                <div class="tanks-popup-raiobuttons">
+                    <div class="tanks-popup-radiobutton-container">
+                        <input type="radio" id="standart" name="equipment" value="standart" checked />
+                        <label for="standart" class="tanks-equipment-element">Стандартная</label>
+                    </div>
 
-                <div>
-                    <input type="radio" id="standart" name="equipment" value="standart" checked />
-                    <label for="standart" class="tanks-equipment-element">Стандартная</label>
-                </div>
+                    <div class="tanks-popup-radiobutton-container">
+                        <input type="radio" id="elite" name="equipment" value="elite" />
+                        <label for="elite" class="tanks-equipment-element">Элитная</label>
+                    </div>
 
-                <div>
-                    <input type="radio" id="elite" name="equipment" value="elite" />
-                    <label for="elite" class="tanks-equipment-element">Элитная</label>
-                </div>
-
-                <div>
-                    <input type="radio" id="premium" name="equipment" value="premium" />
-                    <label for="premium" class="tanks-equipment-element">Премиум</label>
+                    <div class="tanks-popup-radiobutton-container">
+                        <input type="radio" id="premium" name="equipment" value="premium" />
+                        <label for="premium" class="tanks-equipment-element">Премиум</label>
+                    </div>
                 </div>
             </fieldset>
-            <div class="tanks-popup-experience">
+            <div class="tanks-popup-experience-desktop">
                 <p class="tanks-popup-title">Опыт танка</p>
                 <div class="experience-container">
                     <img
@@ -58,10 +59,10 @@
         <div class="main-slider-container">
             <span class="bar-background"></span>
             <div class="tanks-slider-container">
-            <p class="tanks-popup-title">Количество боёв</p>
-            <div class="custom-progress progress-up">
-                <div id="rating_slider" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content mt-3"></div>
-            </div>
+                <p class="tanks-popup-title">Количество боёв</p>
+                <div class="custom-progress progress-up">
+                    <div id="rating_slider" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content mt-3"></div>
+                </div>
             </div>
             <input
                 type="number"
@@ -75,11 +76,25 @@
                     if (this.value.length > 1 && this.value[0] === '0') this.value = this.value.slice(1);
                 "
             >
+            <div class="tanks-popup-experience-mobile">
+                <p class="tanks-popup-title">Опыт танка</p>
+                <div class="experience-container">
+                    <img
+                        src="./assets/images/star.svg"
+                        alt="experience star"
+                        class="experience-container-star"
+                        width="46"
+                        height="46"
+                    >
+                    <p id="experience-quantity-mobile"></p>
+                </div>
+            </div>
         </div>
         </div>
     </div>
     <script defer src="./vendor/js/jquery-3.7.1.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script defer src="./app.js"></script>
 </body>
 </html>

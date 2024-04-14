@@ -58,6 +58,11 @@
     padding: 31.5px 40px;
     border: 2px solid #747474;
     z-index: 0;
+
+    @media screen and (max-width: 576px) {
+        padding: 15px 10px;
+        width: 280px;
+    }
 }
 
 .tanks-popup::after,
@@ -69,6 +74,13 @@
     position: absolute;
     bottom: 100%;
     left: 4rem;
+}
+
+@media screen and (max-width: 576px) {
+    .tanks-popup::after,
+    .tanks-popup::before {
+        left: 6rem;
+    }
 }
 
 .tanks-popup::after {
@@ -93,6 +105,11 @@
     font-weight: 700;
     color: #AEAC7E;
     margin-bottom: 18px;
+
+    @media screen and (max-width: 576px) {
+        text-align: center;
+        font-size: 22px;
+    }
 }
 
 .main-equipment-container {
@@ -105,15 +122,46 @@
     margin-bottom: 38px;
 }
 
+.tanks-popup-raiobuttons {
+    @media screen and (max-width: 576px) {
+        display: flex;
+    }
+}
+
+.tanks-popup-radiobutton-container {
+    @media screen and (max-width: 576px) {
+        text-align: center;
+    }
+}
+
 .tanks-equipment-element {
     color: #ADADAD;
     font-size: 1.125rem;
+
+    @media screen and (max-width: 576px) {
+        font-size: 0.75rem;
+    }
 }
 
-.tanks-popup-experience {
+.tanks-popup-experience-desktop {
     width: 208px;
     height: 126px;
+
+    @media screen and (max-width: 576px) {
+        display: none;
+    }
 }
+
+.tanks-popup-experience-mobile {
+    width: 208px;
+    height: 126px;
+
+    @media screen and (min-width: 576px) {
+        display: none;
+    }
+}
+
+
 
 .tanks-popup-slider-main {
     display: flex;
@@ -123,12 +171,18 @@
     background-color: #1C1C1E;
 }
 
-#experience-quantity {
+#experience-quantity,
+#experience-quantity-mobile
+ {
     font-weight: 700;
     font-size: 56px;
     color: #F8AA31;
     height: 64px;
     text-align: left;
+
+    @media screen and (max-width: 576px) {
+        font-size: 40px;
+    }
 }
 
 .experience-container {
@@ -147,12 +201,22 @@
     border-radius: 6px;
     overflow: hidden;
     background: linear-gradient(180deg, #4F4F4F 0%, #313131 100%);
+
+    @media screen and (max-width: 576px) {
+        width: 260px;
+    }
 }
 
 .main-slider-container {
     display: flex;
     gap: 119px;
     align-items: self-end;
+
+    @media screen and (max-width: 576px) {
+        gap: 40px;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .bar-background {
@@ -167,10 +231,21 @@
     border-radius: 7px;
     overflow: hidden;
     background: linear-gradient(0deg, #252525 0%, #727272 100%);
+
+    @media screen and (max-width: 576px) {
+        top: 207px;
+        right: 4px;
+        width: 264px;
+        height: 64px;
+    }
 }
 
 #rating_slider {
     border: 4px solid;
+
+    @media screen and (max-width: 576px) {
+        width: 217px;
+    }
 }
 
 .tanks-experiense-container {
@@ -182,6 +257,11 @@
 
 input[type=radio] {
     accent-color: #676767;
+
+    @media screen and (max-width: 576px) {
+        width: 24px;
+        height: 24px;
+    }
 }
 
 input::-webkit-outer-spin-button,
