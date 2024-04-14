@@ -7,17 +7,21 @@ $(document).ready(function() {
 });
 
 $("#rating_slider").slider({
-  min: 0,
-  max: 300,
-  value: 1,
-  slide: function (event, ui) {
-    //When sliding the toggle
-    updateInputFromSlider("#rating_input", $(this).slider("value"));
-  },
-  change: function (event, ui) {
-    //After releasing the toggle
-    updateInputFromSlider("#rating_input", $(this).slider("value"));
-  }
+    min: 0,
+    max: 300,
+    value: 1,
+    range: "min",
+    slide: function (event, ui) {
+        updateInputFromSlider("#rating_input", $(this).slider("value"));
+    },
+    range: "min",
+    change: function (event, ui) {
+        updateInputFromSlider("#rating_input", $(this).slider("value"));
+    },
+    create: function(event, ui) {
+        var rangeColor = "linear-gradient(180deg, #FFD100 0%, #997D00 100%)";
+        $(this).find(".ui-slider-range").css("background-image", rangeColor);
+    }
 });
 
 function updateInputFromSlider(input_id, value) {
