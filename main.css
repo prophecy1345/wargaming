@@ -53,8 +53,7 @@
 
 .tanks-popup {
     width: 672px;
-    opacity: 0.5;
-    background-color: #2A2A2AE5;
+    background-color: rgba(42, 42, 42, 0.5);
     position: relative;
     padding: 31.5px 40px;
     border: 2px solid #747474;
@@ -181,7 +180,7 @@ input[type=number] {
     width: 128px;
     height: 48px;
     text-align: right;
-    padding-right: 19px;
+    padding-right: 14px;
 }
 
 input[type=number]:focus {

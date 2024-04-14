@@ -34,3 +34,33 @@ $(document).ready(function () {
     $("#rating_slider").prop("value", $(this).val());
   });
 });
+
+function calculateValue() {
+    var rating = parseInt($("#rating_input").val());
+    var equipmentValue = 0;
+
+    $(".tanks-equipment-container input").each(function() {
+        var equipmentType = $(this).is(":checked") ? $(this).val() : null;
+
+        if (equipmentType === "standart") {
+            equipmentValue = 1;
+        } else if (equipmentType === "elite") {
+            equipmentValue = 0.1 * rating;
+        } else if (equipmentType === "premium") {
+            equipmentValue = 0.2 * rating;
+        }
+    });
+
+    var totalValue = rating * 3 * equipmentValue;
+    console.log(totalValue);
+    $(".main-equipment-container div p").text(totalValue);
+}
+
+$(document).ready(function() {
+    calculateValue();
+
+    $("#rating_input, .tanks-equipment-container input, .tanks-equipment-container select, #rating_slider, .ui-slider-handle").on("click", function() {
+        calculateValue();
+    });
+});
+
