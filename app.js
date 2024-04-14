@@ -53,12 +53,12 @@ function calculateValue() {
 
     var totalValue = (rating * 3 * equipmentValue).toFixed(0);
 
-    updateNumber("#experience-quantity", totalValue);
+    animateNumber("#experience-quantity", totalValue);
 
     $("#experience-quantity").text(totalValue);
 }
 
- function updateNumber(element, number){
+ function animateNumber(element, number){
     $(element).prop('counter',0).animate({
         counter: number
     },
