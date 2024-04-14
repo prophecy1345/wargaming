@@ -1,7 +1,7 @@
 $(document).ready(function() {
-    var element = $('.tanks-tile');
-    for(var i = 0; i < 5; i++) {
-        var clone = element.clone();
+    const element = $('.tanks-tile');
+    for(let i = 0; i < 5; i++) {
+        const clone = element.clone();
         $('.tanks-container').append(clone);
     }
 });
@@ -19,7 +19,7 @@ $("#rating_slider").slider({
         updateInputFromSlider("#rating_input", $(this).slider("value"));
     },
     create: function(event, ui) {
-        var rangeColor = "linear-gradient(180deg, #FFD100 0%, #997D00 100%)";
+        const rangeColor = "linear-gradient(180deg, #FFD100 0%, #997D00 100%)";
         $(this).find(".ui-slider-range").css("background-image", rangeColor);
     }
 });
@@ -36,14 +36,14 @@ $(document).ready(function () {
 });
 
 function calculateValue() {
-    var rating = parseInt($("#rating_input").val());
-    var equipmentValue = 0;
+    const rating = parseInt($("#rating_input").val());
+    let equipmentValue = 0;
 
     $(".tanks-equipment-container input").each(function() {
-        var equipmentType = $(this).is(":checked") ? $(this).val() : null;
+        const equipmentType = $(this).is(":checked") ? $(this).val() : null;
 
         if (equipmentType === "standart") {
-            equipmentValue = 1;
+            equipmentValue = 0;
         } else if (equipmentType === "elite") {
             equipmentValue = 0.1 * rating;
         } else if (equipmentType === "premium") {
@@ -59,7 +59,7 @@ function calculateValue() {
         $(this).focus();
     });
 
-    var totalValue = (rating * 3 * equipmentValue).toFixed(0);
+    const totalValue = (rating * 3 + equipmentValue).toFixed(0);
 
     console.log(totalValue);
 
@@ -73,7 +73,7 @@ function calculateValue() {
     }
 }
 
- function animateNumber(element, number){
+function animateNumber(element, number){
     $(element).prop('counter',0).animate({
         counter: number
     },
@@ -104,4 +104,3 @@ $(document).ready(function() {
         calculateValue();
     });
 });
-
