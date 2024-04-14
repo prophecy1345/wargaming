@@ -109,14 +109,30 @@
 #rating-slider {
     background-color: #1C1C1E;
 }
+
 .custom-progress {
+    position: relative;
     width: 345px;
     height: 57px;
-    padding: 14px 22px 14px 22px;
-    border: 1px solid;
+    padding: 22px;
+    border: 2px transparent;
+    border-radius: 6px;
+    overflow: hidden;
     background: linear-gradient(180deg, #4F4F4F 0%, #313131 100%);
-    border-image-source: linear-gradient(0deg, #252525 0%, #727272 100%);
-    border-image-slice: 1;
+}
+
+.bar-background {
+    top: 219px;
+    right: 282px;
+    display: block;
+    position: absolute;
+    width: 348px;
+    height: 60px;
+    padding: 22px;
+    border: none;
+    border-radius: 7px;
+    overflow: hidden;
+    background: linear-gradient(0deg, #252525 0%, #727272 100%);
 }
 
 #rating_slider {
@@ -159,7 +175,7 @@ input[type=number] {
 }
 
 .mt-3 {
-    margin-top: 7px !important;
+    margin-top: -2px !important;
 }
 
 .ui-widget.ui-widget-content {
