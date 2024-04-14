@@ -6,6 +6,13 @@ $(document).ready(function() {
     }
 });
 
+// $('.tanks-tile').each(function() {
+//     const popup = $(".tanks-popup").clone(true, true);
+//     $(this).append(popup);
+// });
+
+
+
 $("#rating_slider").slider({
     min: 0,
     max: 300,
@@ -51,7 +58,7 @@ function calculateValue() {
         }
     });
 
-    $(".tanks-equipment-container input").on("click touchstart", function() {
+    $("input[type=radio]").on("touchstart click", function() {
         $(this).prop("checked", true);
     });
 
@@ -59,10 +66,9 @@ function calculateValue() {
         $(this).focus();
     });
 
+
+
     const totalValue = (rating * 3 + equipmentValue).toFixed(0);
-
-    console.log(totalValue);
-
 
     if ($(window).width() <= 576) {
         $("#experience-quantity-mobile").text(totalValue);
@@ -91,7 +97,7 @@ $(document).ready(function() {
     calculateValue();
 
 
-    $(".tanks-equipment-container input, .tanks-equipment-container select, #rating_slider, .ui-slider-handle").on("click input touchstart", function(event) {
+    $(".tanks-equipment-container input, .tanks-equipment-container select, #rating_slider, .ui-slider-handle touchstart").on("click input touchstart", function(event) {
         event.preventDefault();
         calculateValue();
     });
@@ -100,7 +106,7 @@ $(document).ready(function() {
         calculateValue();
     });
 
-    $("#rating_slider").on("slide", function(event, ui) {
+    $("#rating_slider").on("slide touchstart", function(event, ui) {
         calculateValue();
     });
 });
