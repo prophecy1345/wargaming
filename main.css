@@ -113,10 +113,14 @@
     width: 345px;
     height: 57px;
     padding: 14px 22px 14px 22px;
-    background: linear-gradient(180deg, #4F4F4F 0%, #313131 100%);
     border: 1px solid;
+    background: linear-gradient(180deg, #4F4F4F 0%, #313131 100%);
     border-image-source: linear-gradient(0deg, #252525 0%, #727272 100%);
     border-image-slice: 1;
+}
+
+#rating_slider {
+    border: 1px solid;
     border-radius: 4px;
 }
 
@@ -148,6 +152,14 @@ input[type=number] {
 
 .ui-slider-horizontal .ui-slider-handle {
     top: -15px;
+}
+
+.ui-slider-handle:focus-visible {
+    outline: none;
+}
+
+.mt-3 {
+    margin-top: 7px !important;
 }
 
 .ui-widget.ui-widget-content {
