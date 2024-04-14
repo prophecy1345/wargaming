@@ -51,10 +51,11 @@ function calculateValue() {
         }
     });
 
-    var totalValue = rating * 3 * equipmentValue;
-    console.log(totalValue);
-    $(".main-equipment-container div p").text(totalValue);
+    var totalValue = (rating * 3 * equipmentValue).toFixed(0);
+
+    $("#experience-quantity").text(totalValue);
 }
+
 
 $(document).ready(function() {
     calculateValue();

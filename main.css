@@ -95,6 +95,11 @@
     margin-bottom: 18px;
 }
 
+.main-equipment-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .tanks-equipment-container {
     border: 0;
     margin-bottom: 38px;
@@ -105,12 +110,32 @@
     font-size: 1.125rem;
 }
 
+.tanks-popup-experience {
+    width: 208px;
+    height: 126px;
+}
+
 .tanks-popup-slider-main {
     display: flex;
 }
 
 #rating-slider {
     background-color: #1C1C1E;
+}
+
+#experience-quantity {
+    font-weight: 700;
+    font-size: 56px;
+    color: #F8AA31;
+    height: 64px;
+    text-align: left;
+}
+
+.experience-container {
+    display: flex;
+    align-items: center;
+    width: 208px;
+    justify-content: space-between;
 }
 
 .custom-progress {
