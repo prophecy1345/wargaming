@@ -55,7 +55,7 @@
     display: none;
   }
 
-.tanks-popup {
+  [id^="tanks-popup-"] {
     display: block;
     width: 672px;
     background-color: rgba(42, 42, 42, 0.5);
@@ -73,8 +73,8 @@
     }
 }
 
-.tanks-popup::after,
-.tanks-popup::before {
+[id^="tanks-popup-"]::after,
+[id^="tanks-popup-"]::before {
     width: 0;
     height: 0;
     content: "";
@@ -85,13 +85,13 @@
 }
 
 @media screen and (max-width: 576px) {
-    .tanks-popup::after,
-    .tanks-popup::before {
+    [id^="tanks-popup-"]::after,
+    [id^="tanks-popup-"]::before {
         left: 6rem;
     }
 }
 
-.tanks-popup::after {
+[id^="tanks-popup-"]::after {
     border-bottom: 47px solid #2A2A2AE5;
     border-left: 33px solid transparent;
     border-right: 33px solid transparent;
@@ -99,7 +99,7 @@
     margin-top: 1px;
 }
 
-.tanks-popup::before {
+[id^="tanks-popup-"]::before {
     border-bottom: 50px solid #747474;
     border-left: 36px solid transparent;
     border-right: 36px solid transparent;
@@ -130,7 +130,7 @@
     margin-bottom: 38px;
 }
 
-.tanks-popup-raiobuttons {
+.tanks-popup-radiobuttons {
     @media screen and (max-width: 576px) {
         display: flex;
     }

@@ -2,45 +2,25 @@ $(document).ready(function() {
     const element = $('.tanks-tile');
     for(let i = 0; i < 5; i++) {
         const clone = element.clone();
+        clone.attr('id', `tanks-tile-${i + 1}`);
         $('.tanks-container').append(clone);
     }
 });
 
-// $('.tanks-tile').each(function() {
-//     const popup = $(".tanks-popup").clone(true, true);
-//     $(this).append(popup);
-// });
-
-
-
-$("#rating_slider-1").slider({
-    min: 0,
-    max: 300,
-    value: 1,
-    range: "min",
-    slide: function () {
-        updateInputFromSlider("#rating_input-1", $(this).slider("value"));
-        console.log($(this).slider("value"));
-    },
-    change: function () {
-        console.log($(this).slider("value"));
-        updateInputFromSlider("#rating_input-1", $(this).slider("value"));
-    },
-    create: function() {
-        const rangeColor = "linear-gradient(180deg, #FFD100 0%, #997D00 100%)";
-        $(this).find(".ui-slider-range").css("background-image", rangeColor);
+$(document).ready(function() {
+    const popupElement = $('.tanks-popup');
+    for(let i = 0; i < 6; i++) {
+        const clone = popupElement.clone(true, true);
+        clone.attr('id', `tanks-popup-${i}`);
+        clone.find("#rating_input-0").attr("id", "rating_input-" + (i));
+        clone.find("#rating_slider-0").attr("id", "rating_slider-" + (i));
+        clone.find("#tanks-equipment-container-0").attr("id", "tanks-equipment-container-" + (i));
+        clone.find("#experience-quantity-0").attr("id", "experience-quantity-" + (i));
+        clone.find("#experience-quantity-mobile-0").attr("id", "experience-quantity-mobile-" + (i));
+        clone.find("#tanks-equipment-container-0").attr("id", "tanks-equipment-container-" + (i));
+        $('.tanks-tile').eq(i).append(clone);
     }
-});
-
-function updateInputFromSlider(input_id, value) {
-    $(input_id).val(value);
-}
-
-$(document).ready(function () {
-  $("#rating_input-1").change(function () {
-    $("#rating_slider-1").slider("value", $(this).val());
-    $("#rating_slider-1").prop("value", $(this).val());
-  });
+    popupElement.hide();
 });
 
 function calculateValue(id) {
@@ -51,7 +31,7 @@ function calculateValue(id) {
         const equipmentType = $(this).val();
 
         if (equipmentType === "standart") {
-            equipmentValue = 0;
+            return;
         } else if (equipmentType === "elite") {
             equipmentValue = 0.1 * rating;
         } else if (equipmentType === "premium") {
@@ -67,36 +47,56 @@ function calculateValue(id) {
         $(this).focus();
     });
 
-    const totalValue = rating * 3 + equipmentValue;
+    $(`#rating_slider-${id}`).on("touchend", function(e) {
+        const value = e.target.value;
+        $(this).focus().val(value);
+    });
 
-    console.log('рейтинг', rating, 'eq', equipmentValue, 'total', totalValue)
+    const totalValue = rating * 3 + equipmentValue;
 
     if ($(window).width() <= 576) {
         $(`#experience-quantity-mobile-${id}`).text(totalValue);
-        animateNumber(`#experience-quantity-mobile-${id}`, totalValue);
     } else {
         $(`#experience-quantity-${id}`).text(totalValue);
-        animateNumber(`#experience-quantity-${id}`, totalValue);
     }
 }
 
-function animateNumber(element, number){
-    $(element).prop('counter', 0).animate({
-        counter: number
-    },
-    {
-      duration: 100,
-      step: function(now){
-          $(this).text(Math.ceil(now));
-      }
+let currentTanksTileId = '';
+
+$('.tanks-container').on('mouseenter touchstart', '.tanks-tile', function() {
+    currentTanksTileId = $(this).attr('id').slice(-1);
+
+    $(`#rating_slider-${currentTanksTileId}`).slider({
+        min: 0,
+        max: 300,
+        value: $(`#rating_input-${currentTanksTileId}`).val(),
+        range: "min",
+        slide: function () {
+            updateInputFromSlider(`#rating_input-${currentTanksTileId}`, $(this).slider("value"));
+            $(`#rating_slider-${currentTanksTileId}`).slider('value', $(this).slider("value"));
+        },
+        create: function() {
+            const rangeColor = "linear-gradient(180deg, #FFD100 0%, #997D00 100%)";
+            $(this).find(".ui-slider-range").css("background-image", rangeColor);
+        },
     });
-};
 
+    function updateInputFromSlider(input_id, value) {
+        $(input_id).val(value);
+    }
 
-$(document).ready(function() {
-    calculateValue(1);
+    $(document).ready(function () {
+      $(`#rating_input-${currentTanksTileId}`).change(function () {
+        $(`#rating_slider-${currentTanksTileId}`).slider("value", $(this).val());
+        $(`#rating_slider-${currentTanksTileId}`).prop("value", $(this).val());
+      });
+    });
 
-    $("input[type=radio], #rating_input-1, #rating_slider-1").on("touchstart click input slide", function() {
-        calculateValue(1);
+    $(document).ready(function() {
+        calculateValue(`${currentTanksTileId}`);
+
+        $(`input[type=radio], #rating_input-${currentTanksTileId}, #rating_slider-${currentTanksTileId}`).on("touchstart click input slide", function() {
+            calculateValue(`${currentTanksTileId}`);
+        });
     });
 });
