@@ -83,7 +83,7 @@
     backdrop-filter: blur(2px);
 
     @media screen and (max-width: 576px) {
-        background-color: rgba(42, 42, 42, 1);
+        background-color: #2A2A2A;
         padding: 15px 10px;
         width: 280px;
         left: -1px;
@@ -114,6 +114,12 @@
     border-right: 33px solid transparent;
     z-index: 2;
     margin-top: 1px;
+}
+
+@media screen and (max-width: 576px) {
+    [id^="tanks-popup-"]::after {
+        border-bottom: 47px solid #2A2A2A;
+    }
 }
 
 [id^="tanks-popup-"]::before {
