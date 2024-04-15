@@ -316,10 +316,10 @@ input[type=number]:focus {
     background: linear-gradient(0deg, #252525 0%, #727272 100%);
 
     @media screen and (max-width: 576px) {
-        top: 202px;
-        right: 5px;
-        width: 266px;
-        height: 64px;
+        top: 204px;
+        right: 6px;
+        width: 264px;
+        height: 60px;
     }
 }
 
