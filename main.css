@@ -86,7 +86,7 @@
         background-color: #2A2A2A;
         padding: 15px 10px;
         width: 280px;
-        left: -1px;
+        left: -4px;
     }
 }
 
@@ -98,13 +98,13 @@
     display: block;
     position: absolute;
     bottom: 100%;
-    left: 4rem;
+    left: 64px;
 }
 
 @media screen and (max-width: 576px) {
     [id^="tanks-popup-"]::after,
     [id^="tanks-popup-"]::before {
-        left: 6rem;
+        left: 101px;
     }
 }
 
