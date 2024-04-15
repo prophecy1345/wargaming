@@ -17,6 +17,9 @@ $(document).ready(function() {
         clone.find("#tanks-equipment-container-0").attr("id", "tanks-equipment-container-" + (i));
         clone.find("#experience-quantity-0").attr("id", "experience-quantity-" + (i));
         clone.find("#experience-quantity-mobile-0").attr("id", "experience-quantity-mobile-" + (i));
+        clone.find("#standart-0").attr("id", "standart-" + (i));
+        clone.find("#elite-0").attr("id", "elite-" + (i));
+        clone.find("#premium-0").attr("id", "premium-" + (i));
         $('.tanks-tile').eq(i).append(clone);
     }
     popupElement.hide();
@@ -36,12 +39,6 @@ function calculateValue(id) {
         } else if (equipmentType === "premium") {
             equipmentValue = 0.2 * rating;
         }
-    });
-
-    $(`#tanks-equipment-container-${id} input[type=radio]:checked`).prop("checked", true);
-
-    $("input[type=radio]").on("touchstart click", function() {
-        $(this).prop("checked", true);
     });
 
     $(`#rating_input-${id}`).on("click touchstart", function() {
