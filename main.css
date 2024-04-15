@@ -322,7 +322,7 @@ input[type=number]:focus {
 }
 
 .ui-slider-horizontal .ui-slider-handle {
-    top: -14px;
+    top: -19px;
     margin-left: -23px;
 }
 
@@ -338,10 +338,8 @@ input[type=number]:focus {
     width: 301px;
     height: 13px;
     padding: 4px 0px 0px 0px;
-    gap: 10px;
     border-radius: 6px;
-    border: 1px;
-    opacity: 0px;
+    border: 4px solid #343434;
     background: #1D1D1F;
 
     @media screen and (max-width: 576px) {
