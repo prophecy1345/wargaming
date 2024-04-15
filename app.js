@@ -38,6 +38,8 @@ function calculateValue(id) {
         }
     });
 
+    $(`#tanks-equipment-container-${id} input[type=radio]:checked`).prop("checked", true);
+
     $("input[type=radio]").on("touchstart click", function() {
         $(this).prop("checked", true);
     });
