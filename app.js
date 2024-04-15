@@ -13,41 +13,42 @@ $(document).ready(function() {
 
 
 
-$("#rating_slider").slider({
+$("#rating_slider-1").slider({
     min: 0,
     max: 300,
     value: 1,
     range: "min",
-    slide: function (event, ui) {
-        updateInputFromSlider("#rating_input", $(this).slider("value"));
+    slide: function () {
+        updateInputFromSlider("#rating_input-1", $(this).slider("value"));
+        console.log($(this).slider("value"));
     },
-    range: "min",
-    change: function (event, ui) {
-        updateInputFromSlider("#rating_input", $(this).slider("value"));
+    change: function () {
+        console.log($(this).slider("value"));
+        updateInputFromSlider("#rating_input-1", $(this).slider("value"));
     },
-    create: function(event, ui) {
+    create: function() {
         const rangeColor = "linear-gradient(180deg, #FFD100 0%, #997D00 100%)";
         $(this).find(".ui-slider-range").css("background-image", rangeColor);
     }
 });
 
 function updateInputFromSlider(input_id, value) {
-  $(input_id).val(value);
+    $(input_id).val(value);
 }
 
 $(document).ready(function () {
-  $("#rating_input").change(function () {
-    $("#rating_slider").slider("value", $(this).val());
-    $("#rating_slider").prop("value", $(this).val());
+  $("#rating_input-1").change(function () {
+    $("#rating_slider-1").slider("value", $(this).val());
+    $("#rating_slider-1").prop("value", $(this).val());
   });
 });
 
-function calculateValue() {
-    const rating = parseInt($("#rating_input").val());
+function calculateValue(id) {
+    const rating = parseInt($(`#rating_input-${id}`).val());
     let equipmentValue = 0;
 
-    $(".tanks-equipment-container input").each(function() {
-        const equipmentType = $(this).is(":checked") ? $(this).val() : null;
+    $(`#tanks-equipment-container-${id} input:checked`).each(function() {
+        const equipmentType = $(this).val();
 
         if (equipmentType === "standart") {
             equipmentValue = 0;
@@ -62,25 +63,25 @@ function calculateValue() {
         $(this).prop("checked", true);
     });
 
-    $("#rating_input").on("click touchstart", function() {
+    $(`#rating_input-${id}`).on("click touchstart", function() {
         $(this).focus();
     });
 
+    const totalValue = rating * 3 + equipmentValue;
 
-
-    const totalValue = (rating * 3 + equipmentValue).toFixed(0);
+    console.log('рейтинг', rating, 'eq', equipmentValue, 'total', totalValue)
 
     if ($(window).width() <= 576) {
-        $("#experience-quantity-mobile").text(totalValue);
-        animateNumber("#experience-quantity-mobile", totalValue);
+        $(`#experience-quantity-mobile-${id}`).text(totalValue);
+        animateNumber(`#experience-quantity-mobile-${id}`, totalValue);
     } else {
-        $("#experience-quantity").text(totalValue);
-        animateNumber("#experience-quantity", totalValue);
+        $(`#experience-quantity-${id}`).text(totalValue);
+        animateNumber(`#experience-quantity-${id}`, totalValue);
     }
 }
 
 function animateNumber(element, number){
-    $(element).prop('counter',0).animate({
+    $(element).prop('counter', 0).animate({
         counter: number
     },
     {
@@ -93,17 +94,9 @@ function animateNumber(element, number){
 
 
 $(document).ready(function() {
-    calculateValue();
+    calculateValue(1);
 
-    $("input[type=radio]").on("touchstart click", function() {
-       calculateValue();
-    });
-
-    $("#rating_input").on("input", function() {
-        calculateValue();
-    });
-
-    $("#rating_slider").on("slide touchstart", function(event, ui) {
-        calculateValue();
+    $("input[type=radio], #rating_input-1, #rating_slider-1").on("touchstart click input slide", function() {
+        calculateValue(1);
     });
 });
