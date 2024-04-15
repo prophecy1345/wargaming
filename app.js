@@ -17,7 +17,6 @@ $(document).ready(function() {
         clone.find("#tanks-equipment-container-0").attr("id", "tanks-equipment-container-" + (i));
         clone.find("#experience-quantity-0").attr("id", "experience-quantity-" + (i));
         clone.find("#experience-quantity-mobile-0").attr("id", "experience-quantity-mobile-" + (i));
-        clone.find("#tanks-equipment-container-0").attr("id", "tanks-equipment-container-" + (i));
         $('.tanks-tile').eq(i).append(clone);
     }
     popupElement.hide();
