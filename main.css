@@ -200,6 +200,10 @@
     align-items: center;
     width: 208px;
     justify-content: space-between;
+
+    @media screen and (max-width: 576px) {
+        justify-content: space-around;
+    }
 }
 
 .custom-progress {
@@ -245,7 +249,7 @@
     @media screen and (max-width: 576px) {
         top: 207px;
         right: 4px;
-        width: 264px;
+        width: 266px;
         height: 64px;
     }
 }
@@ -318,7 +322,7 @@ input[type=number]:focus {
 }
 
 .ui-slider-horizontal .ui-slider-handle {
-    top: -19px;
+    top: -14px;
     margin-left: -23px;
 }
 
@@ -339,4 +343,8 @@ input[type=number]:focus {
     border: 1px;
     opacity: 0px;
     background: #1D1D1F;
+
+    @media screen and (max-width: 576px) {
+        width: 216px;
+    }
 }

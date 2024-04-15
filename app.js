@@ -47,9 +47,8 @@ function calculateValue(id) {
         $(this).focus();
     });
 
-    $(`#rating_slider-${id}`).on("touchend", function(e) {
-        const value = e.target.value;
-        $(this).focus().val(value);
+    $(`#rating_slider-${id}`).on("touchstart", function(e) {
+        $(this).focus();
     });
 
     const totalValue = rating * 3 + equipmentValue;
